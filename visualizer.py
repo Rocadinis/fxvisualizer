@@ -65,7 +65,7 @@ left(90)
 # Info and drawing
 def checkf():
     function = textinput("Function box", "Insert a function")
-    if function != "" and function is not None:
+    if function != "" and function is not None: # This is what will calculate and plot the function
         penup()
         color("red")
         left(90)
@@ -73,9 +73,11 @@ def checkf():
         vals = function.split(",")
         x = vals[0]
         y = vals[1]
+        goto (int(x) * 100, int(y) * 100)
         pendown()
-        goto (int(x) * 1000, int(y) * 1000)
-        # prolly not completely right, must fix later
+        dot(5, "red")
+        print(pos())
+        #  not completely right, must fix later
         done()
     elif function == None:
         messagebox.showerror("Error", "Process aborted.")
